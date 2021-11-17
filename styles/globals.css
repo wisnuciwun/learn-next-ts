@@ -29,7 +29,6 @@ a {
   top: 50%;
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
-  background-color: tomato;
   padding: 10px;
   color: white;
 }

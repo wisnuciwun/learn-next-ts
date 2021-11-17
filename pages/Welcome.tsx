@@ -1,10 +1,12 @@
+import Layout from "../components/Layout";
+
 export default function Welcome() {
     return (
-        <div className="container">
-            <div className="element">
-                <h1>Hello everyone !</h1>
-                <p>This is my first Next JS project. Learn basic to be fantastic</p>
+        <Layout>
+            <div>
+                <span style={{display: 'flex'}}><h1 style={{color: 'tomato'}}>Hello e</h1><h1 style={{color: 'white'}}>veryone !</h1></span>
+                <span style={{display: 'flex'}}><p style={{color: 'tomato'}}>This is my first</p>&nbsp;<p style={{color: 'white'}}>Next JS project. Learn basic to be fantastic</p></span>
             </div>
-        </div>
+        </Layout>
     )
 }

@@ -1,13 +1,13 @@
 import type { NextPage } from 'next'
+import Layout from '../components/Layout'
 import Menu from '../components/Menu'
 import styles from '../styles/Home.module.css'
 
 const Home: NextPage = () => {
   return (
-    <div className="container">
-      <h1 className="element" style={{ backgroundColor: 'turquoise' }}><em>Wilujeng Sumping  !</em></h1>
-      <Menu/>
-    </div>
+      <Layout>
+        <h1 style={{ backgroundColor: 'turquoise', padding: '10px' }}><em>Wilujeng Sumping  !</em></h1>
+      </Layout>
   )
 }
 
