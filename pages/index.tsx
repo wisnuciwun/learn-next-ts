@@ -5,7 +5,7 @@ import styles from '../styles/Home.module.css'
 
 const Home: NextPage = () => {
   return (
-      <Layout>
+      <Layout pageTitle="Home">
         <h1 style={{ backgroundColor: 'turquoise', padding: '10px' }}><em>Wilujeng Sumping  !</em></h1>
       </Layout>
   )

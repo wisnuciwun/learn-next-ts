@@ -22,6 +22,7 @@ a {
   border: 10px solid tomato;
   justify-content: center;
   display: flex;
+  text-align: center;
 }
 
 .element {
@@ -36,6 +37,7 @@ a {
 .fade-in {
   animation: fadeIn ease-in 1s;
   animation-iteration-count: 1;
+  background-color: tomato !important;
 }
 
 @keyframes fadeIn {
