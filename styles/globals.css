@@ -23,6 +23,7 @@ a {
   justify-content: center;
   display: flex;
   text-align: center;
+  overflow-y: auto;
 }
 
 .element {
