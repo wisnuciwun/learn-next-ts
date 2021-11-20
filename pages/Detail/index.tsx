@@ -2,18 +2,21 @@
 //     data: [{name: '', email: ''}];
 // }
 
-export default function Detail({ data = [{name: '', email: ''}] }) {
+import { useRouter } from "next/dist/client/router"
+
+export default function Detail({ data = [{id: '', name: '', email: ''}] }) {
+    const router = useRouter()
     console.log(data)
     return (
         <div className="container">
             <div className="element fade-in">
                 <b>Coding is never be easy, but enjoy it because you'll ends happy</b>
                 <br /><br />
-                Jsonplaceholder trials be like this :
+                List who dedicated to coding in their lifes :
                 {
-                    data.map(x => {
+                    data.map((x,y) => {
                         return(
-                            <p>{x.name} - {x.email}</p>            
+                            <p style={{backgroundColor: 'turquoise', cursor: 'pointer'}} key={y} onClick={() => router.push(`/Detail/${x.id}`)}>{x.name} - {x.email}</p>            
                         )
                     })
                 }
