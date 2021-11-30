@@ -2,14 +2,14 @@ import style from './Other.module.css'
 import Image from 'next/image'
 import { useRouter } from 'next/dist/client/router'
 
-interface DataProps{
+interface DataProps {
     dataDetail: DataDetailProps;
 }
 
-interface DataDetailProps{
+interface DataDetailProps {
     id: Number;
     username: String;
-    name: String;
+    names: String;
     email: String;
     phone: String;
     website: String;
@@ -20,23 +20,30 @@ export default function Other(props: DataProps) {
     const { userid } = router.query
     const { dataDetail } = props
 
-    return (
-        <div className="container">
-            <div className="element">
-                <div className={style.fonts}>
-                    <Image src="/smile.jpg" width={300} height={200} />
-                    <p className="fade-in">People outside busy with theirself, but you should busy with try something amazing</p>
-                    <p className="fade-in">Hello, i am {dataDetail.name}
-                    </p>
-                    <div className="fade-in">
-                        {dataDetail.username}<br/>
-                        {dataDetail.phone}<br/>
-                        {dataDetail.website}
+    if (dataDetail != undefined) {
+        return (
+            <div className="container">
+                <div className="element">
+                    <div className={style.fonts}>
+                        <Image src="/smile.jpg" width={300} height={200} />
+                        <p className="fade-in">People outside busy with theirself, but you should busy with try something amazing</p>
+                        <p className="fade-in">Hello, i am {dataDetail.names}
+                        </p>
+                        <div className="fade-in">
+                            {dataDetail.username}<br />
+                            {dataDetail.phone}<br />
+                            {dataDetail.website}
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    )
+        )
+    }
+    else {
+        return (
+            <div></div>
+        )
+    }
 }
 
 export async function getStaticPaths() {
@@ -45,7 +52,7 @@ export async function getStaticPaths() {
 
     const paths = data.map((x: DataDetailProps) => ({
         params: {
-            userid: `${x.id}`
+            id: `${x.id}`
         }
     }))
     return {
@@ -54,14 +61,14 @@ export async function getStaticPaths() {
     }
 }
 
-interface getStaticPropsContext{
-    params:{ userid: String}
+interface getStaticPropsContext {
+    params: { id: String }
 }
 
 // export async function getStaticProps(context: {params: {id: String}}) {
 export async function getStaticProps(context: getStaticPropsContext) {
-    const { userid } = context.params
-    const result = await fetch(`https://jsonplaceholder.typicode.com/users/${userid}`)
+    const { id } = context.params
+    const result = await fetch(`https://jsonplaceholder.typicode.com/users/${id}`)
     const dataDetail = await result.json()
 
     return {
